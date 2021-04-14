@@ -1,0 +1,46 @@
+<!-- <p>structural-directives works!</p> -->
+ <div *ngIf="discount; then thenBlock; else elseBlock">
+      
+</div>
+
+<ng-template #thenBlock>
+    <h3>
+         {{discount}}
+    </h3>
+</ng-template>
+
+<ng-template #elseBlock>
+    <h2>
+        No
+    </h2>
+</ng-template>
+
+<div class="form-group">
+    <label for="website">Website:</label>
+    <select formControlName="website" class="form-control">
+        <option disabled>Select Category</option>
+        <option *ngFor="let Item of CategoryList">
+            {{Item.Name}}
+        </option>
+    </select>
+</div>
+
+
+<table border="2px solid">
+    <thead>
+      <th>ID</th>
+
+      <th> Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+     
+    </thead>
+    <tbody>
+      <tr *ngFor="let Item of ProductList">
+        <td>{{Item.ID}}</td>
+        <td>{{Item.Name}}</td>
+        <td>{{Item.Quantity}}</td>
+        <td>{{Item.Price}}</td>
+      </tr>
+    </tbody>
+  </table>

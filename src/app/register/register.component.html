@@ -1,0 +1,150 @@
+<!--ngForm-->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                          <div *ngIf="f.firstName.errors.minlength">firstName must be at least 5 characters</div>
+                      </div>
+                     
+                  </div>
+                  <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                          <div *ngIf="f.lastName.errors.minlength">lastName must be at least 5 characters</div>
+                          
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Confirm Password</label>
+                      <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="f.confirmPassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+
+                      </div>
+                       
+                  </div>
+               
+                    
+                  <div class="form-group">
+                      <button class="btn btn-primary">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- <p>ngModel</p>
+
+<div class="container">
+  <form #userForm="ngForm">
+      <br>
+      {{userModel |json}}
+      <div class="form-group">
+          <label>User Name :</label>
+          <input type="text" [class.is-invalid]="username.invalid && username.touched"
+           required name="username" #username="ngModel" [(ngModel)]="userModel.username"
+           pattern="^[A-Z][a-z][A-Za-z]*$"
+
+           class="form-control">
+           <div [hidden]="!username.errors?.pattern">
+            Invalid pattern
+          </div>
+          <small  class="text-danger" [class.d-none]="username.untouched ||username.valid">User Name is required</small>
+      </div>
+      {{username.className}}
+      <br>
+      {{username.valid}}
+
+      <div class="form-group">
+          <label>Email :</label>
+          <input type="email" name="email" #email="ngModel"
+          [class.is-invalid]="email.invalid && email.touched"
+           required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+           [(ngModel)]="userModel.email" class="form-control">
+           <div [hidden]="!email.errors?.pattern">
+            Invalid pattern
+          </div>
+           <small  class="text-danger" [class.d-none]="email.untouched ||email.valid">Email is required</small>
+
+      </div>
+      {{email.className}}
+      <br>
+      {{email.valid}}
+
+      <div class="form-group">
+        <label>Password :</label>
+        <input type="password" name="password" #password="ngModel"
+        [class.is-invalid]="email.invalid && email.touched"
+        required
+         [(ngModel)]="userModel.password" class="form-control">
+         <small  class="text-danger" [class.d-none]="password.untouched ||password.valid">
+           Password is required</small>
+
+    </div>
+    {{password.className}}
+    <br>
+    {{password.valid}}
+
+    <div class="form-group">
+      <label>Confirm Password :</label>
+      <input type="password" name="confirmpassword" #confirmpassword="ngModel"
+      [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched"
+      required
+       [(ngModel)]="userModel.confirmpassword"
+       class="form-control">
+       <small  class="text-danger" [class.d-none]="confirmpassword.untouched ||confirmpassword.valid">Confirm Password is required</small>
+
+      </div>
+      {{confirmpassword.className}}
+      <br>
+      {{confirmpassword.valid}}
+
+      <div class="form-group">
+          <select class="custom-select" #topic="ngModel"
+          [class.is-invalid]="topic.invalid && topic.touched"
+          required [(ngModel)]="userModel.topic" name="Topics">
+
+              <option *ngFor="let topic of topics">{{topic}}
+              </option>
+          </select>
+          <small  class="text-danger" [class.d-none]="topic.untouched ||topic.valid">Topics is required</small>
+
+      </div>
+      {{topic.className}}
+      <br>
+      {{topic.valid}}
+      <input type="submit" class="btn btn-primary" value="Register">
+
+
+
+
+  </form>
+</div> -->

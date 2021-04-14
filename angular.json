@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "7c51de82-abe5-44d4-8a26-2a5de0ca2252"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -9,6 +12,7 @@
         "@schematics/angular:component": {
           "style": "scss"
         },
+        
         "@schematics/angular:application": {
           "strict": true
         }
@@ -128,4 +132,5 @@
     }
   },
   "defaultProject": "MyFirstProject"
+
 }

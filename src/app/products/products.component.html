@@ -1,0 +1,49 @@
+<!-- <h1>{{name}}</h1>
+<br>
+ <img [src]="Store_logo" width="80px" height="50px">
+ <br><br> 
+ <h3>We offer an explicit discount of: {{discount}}</h3> -->
+
+<!-- <h1>{{name |uppercase}}</h1>
+<div *ngIf="discount">
+    <h3>We offer an explicit discount of:{{discount|percent}}</h3>
+</div>
+ <input type="text" [(ngModel)]="ClientName" #txtInput/>
+{{ClientName}} 
+
+<br>
+<br>
+<input type="hidden"  [value]="IsPurshased"   #Status>
+<input type="button" (click)="show(Status.value)"  value="Buy" class="btn btn-primary"/>
+
+<div *ngIf="IsPurshased">
+    Thanks for purchasing from our Store {{ClientName}} 
+</div>
+
+<div *ngFor="let item of ProductList">
+
+     ID
+      {{item.ID}}
+  Name-
+  
+       {{item.Name}}
+
+       Quantity- {{item.Quantity}}
+
+       Price-{{item.Price}}
+       <br>
+
+</div> --> 
+
+    
+    
+        <button (click)="Discount()"> Products with discount </button>
+     
+        <br>
+        <br>
+    
+        <button (click)="WithoutDiscount()"> product without discounts </button>
+     
+        <router-outlet>
+            
+        </router-outlet>

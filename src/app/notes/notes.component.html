@@ -1,0 +1,52 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form [formGroup]="productform">
+                    <div class="form-group">
+                        <label>UserName</label>
+                        <input type="text" formControlName="UserName" class="form-control" [ngClass]="{ 'is-invalid':f.UserName.errors }" />
+                        <div *ngIf="f.UserName.errors" class="invalid-feedback">
+                            <div *ngIf="f.UserName.errors.required">UserName is required</div>
+                            <div *ngIf="f.UserName.errors.minlength">UserName must be at least 5 characters</div>
+                            <div *ngIf="f.UserName.errors ?.forbiddenName.value">Admin UserName is NotAllowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+
+                        <select>
+                            <option *ngFor="let item of products" >
+                                {{item}}
+                            </option>
+                        </select>
+                    </div>
+                   
+                    <div class=form-group   *ngIf="f.check.value">
+                        <label>Enter Discount</label>
+                    <input type="number" class="form-control"  formControllName="discount">
+                    </div>
+                     <div class="form-check" formControlName="check">
+                        <label>Select Discount that you want add</label>
+                        <input type="checkbox" formControlName="check">
+                    </div>    
+                           
+                    
+                        <div class="form-group">
+                            <button (click)="Add()">Add comment</button>
+                            
+                            <div formArrayName="comments" *ngFor="let newComment of comments.controls; let i=index">
+                                <label>Add New Comment</label>
+                                <input type="text" class="form-control" [formControlName]="i">
+                               
+                            </div>
+                                  
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
